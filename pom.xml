@@ -98,7 +98,7 @@
 		<module>xchange-anx</module>
 		<module>xchange-bankera</module>
 		<module>xchange-bibox</module>
-		<module>xchange-binance</module>
+		<module>xchange-nicehash</module>
 		<module>xchange-bitbay</module>
 		<module>xchange-bitcoinaverage</module>
 		<module>xchange-bitcoincharts</module>
@@ -183,7 +183,8 @@
 		<module>xchange-wex</module>
 		<module>xchange-yobit</module>
 		<module>xchange-zaif</module>
-	</modules>
+        <module>xchange-nicehash</module>
+    </modules>
 
 	<repositories>
 		<repository>
