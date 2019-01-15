@@ -98,7 +98,7 @@
 		<module>xchange-anx</module>
 		<module>xchange-bankera</module>
 		<module>xchange-bibox</module>
-		<module>xchange-nicehash</module>
+		<module>xchange-binance</module>
 		<module>xchange-bitbay</module>
 		<module>xchange-bitcoinaverage</module>
 		<module>xchange-bitcoincharts</module>
@@ -167,6 +167,7 @@
 		<module>xchange-livecoin</module>
 		<module>xchange-luno</module>
 		<module>xchange-mercadobitcoin</module>
+		<module>xchange-nicehash</module>
 		<module>xchange-okcoin</module>
 		<module>xchange-openexchangerates</module>
 		<module>xchange-paribu</module>
@@ -183,7 +184,6 @@
 		<module>xchange-wex</module>
 		<module>xchange-yobit</module>
 		<module>xchange-zaif</module>
-        <module>xchange-nicehash</module>
     </modules>
 
 	<repositories>

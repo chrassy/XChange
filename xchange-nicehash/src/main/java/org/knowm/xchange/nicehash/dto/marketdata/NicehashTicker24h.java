@@ -1,12 +1,11 @@
 package org.knowm.xchange.nicehash.dto.marketdata;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.knowm.xchange.nicehash.NicehashAdapters;
-import org.knowm.xchange.currency.CurrencyPair;
-import org.knowm.xchange.dto.marketdata.Ticker;
-
 import java.math.BigDecimal;
 import java.util.Date;
+import org.knowm.xchange.currency.CurrencyPair;
+import org.knowm.xchange.dto.marketdata.Ticker;
+import org.knowm.xchange.nicehash.NicehashAdapters;
 
 public final class NicehashTicker24h {
 

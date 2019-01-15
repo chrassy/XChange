@@ -1,7 +1,6 @@
 package org.knowm.xchange.nicehash.dto.account;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;

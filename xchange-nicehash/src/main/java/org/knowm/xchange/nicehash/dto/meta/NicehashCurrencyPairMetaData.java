@@ -1,9 +1,8 @@
 package org.knowm.xchange.nicehash.dto.meta;
 
+import java.math.BigDecimal;
 import org.knowm.xchange.dto.meta.CurrencyPairMetaData;
 import org.knowm.xchange.dto.meta.FeeTier;
-
-import java.math.BigDecimal;
 
 /** @author ujjwal on 26/02/18. */
 public class NicehashCurrencyPairMetaData extends CurrencyPairMetaData {

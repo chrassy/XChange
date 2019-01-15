@@ -3,7 +3,7 @@ package org.knowm.xchange.nicehash;
 import org.knowm.xchange.nicehash.dto.trade.OrderStatus;
 import org.knowm.xchange.nicehash.dto.trade.NicehashOrder;
 import org.knowm.xchange.nicehash.dto.trade.OrderSide;
-//import org.knowm.xchange.nicehash.nicehash.service.BinanceTradeService.BinanceOrderFlags;
+import org.knowm.xchange.nicehash.service.NicehashTradeService.NicehashOrderFlags;
 import org.knowm.xchange.currency.Currency;
 import org.knowm.xchange.currency.CurrencyPair;
 import org.knowm.xchange.dto.Order;
@@ -14,6 +14,8 @@ import org.knowm.xchange.dto.trade.StopOrder;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class NicehashAdapters {
 
@@ -162,17 +164,17 @@ public class NicehashAdapters {
               order.executedQty,
               orderStatus);
     }
-  /*  Set<IOrderFlags> flags = new HashSet<>();
+    Set<Order.IOrderFlags> flags = new HashSet<>();
     if (order.clientOrderId != null) {
       flags.add(
-          new BinanceOrderFlags() {
+          new NicehashOrderFlags() {
             @Override
             public String getClientId() {
               return order.clientOrderId;
             }
           });
     }
-    result.setOrderFlags(flags);*/
+    result.setOrderFlags(flags);
     return result;
   }
 }

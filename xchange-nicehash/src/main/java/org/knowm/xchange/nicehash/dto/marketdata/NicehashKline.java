@@ -1,9 +1,8 @@
 package org.knowm.xchange.nicehash.dto.marketdata;
 
-import org.knowm.xchange.currency.CurrencyPair;
-
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import org.knowm.xchange.currency.CurrencyPair;
 
 public final class NicehashKline {
 

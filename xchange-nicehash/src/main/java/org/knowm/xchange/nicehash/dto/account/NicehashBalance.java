@@ -1,9 +1,8 @@
 package org.knowm.xchange.nicehash.dto.account;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.knowm.xchange.currency.Currency;
-
 import java.math.BigDecimal;
+import org.knowm.xchange.currency.Currency;
 
 public final class NicehashBalance {
 

@@ -1,5 +1,11 @@
 package org.knowm.xchange.nicehash;
 
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import org.knowm.xchange.BaseExchange;
 import org.knowm.xchange.ExchangeSpecification;
 import org.knowm.xchange.currency.Currency;
@@ -14,13 +20,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import si.mazi.rescu.RestProxyFactory;
 import si.mazi.rescu.SynchronizedValueFactory;
-
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 public class NicehashExchange extends BaseExchange {
 
@@ -37,7 +36,7 @@ public class NicehashExchange extends BaseExchange {
   @Override
   protected void initServices() {
 
-   /* this.marketDataService = new BinanceMarketDataService(this);
+    /* this.marketDataService = new BinanceMarketDataService(this);
     this.tradeService = new BinanceTradeService(this);
     this.accountService = new BinanceAccountService(this);*/
   }
@@ -74,7 +73,7 @@ public class NicehashExchange extends BaseExchange {
       Map<CurrencyPair, CurrencyPairMetaData> currencyPairs = exchangeMetaData.getCurrencyPairs();
       Map<Currency, CurrencyMetaData> currencies = exchangeMetaData.getCurrencies();
 
-    /*  BinanceMarketDataService marketDataService =
+      /*  BinanceMarketDataService marketDataService =
           (BinanceMarketDataService) this.marketDataService;
       exchangeInfo = marketDataService.getExchangeInfo();
       Symbol[] symbols = exchangeInfo.getSymbols();
@@ -115,7 +114,8 @@ public class NicehashExchange extends BaseExchange {
                     maxQty, // Max amount
                     pairPrecision, // precision
                     null /* TODO get fee tiers, although this is not necessary now
-                         because their API returns current fee directly */ /*));
+                         because their API returns current fee directly */
+      /*));
             currencies.put(
                 pair.base,
                 new CurrencyMetaData(

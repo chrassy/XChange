@@ -1,11 +1,10 @@
 package org.knowm.xchange.nicehash.dto.marketdata;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.math.BigDecimal;
 import org.knowm.xchange.currency.CurrencyPair;
 import org.knowm.xchange.utils.Assert;
 import org.knowm.xchange.utils.jackson.CurrencyPairDeserializer;
-
-import java.math.BigDecimal;
 
 public final class NicehashPrice implements Comparable<NicehashPrice> {
 

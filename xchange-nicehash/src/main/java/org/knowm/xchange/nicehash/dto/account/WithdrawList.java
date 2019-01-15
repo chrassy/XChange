@@ -1,11 +1,10 @@
 package org.knowm.xchange.nicehash.dto.account;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.knowm.xchange.nicehash.dto.account.WithdrawList.NicehashWithdraw;
-
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
+import org.knowm.xchange.nicehash.dto.account.WithdrawList.NicehashWithdraw;
 
 public final class WithdrawList extends WapiResponse<List<NicehashWithdraw>> {
 

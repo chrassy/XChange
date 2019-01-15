@@ -261,6 +261,12 @@
 			<artifactId>xchange-mercadobitcoin</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<!-- XChange Nicehash exchange support -->
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>xchange-nicehash</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 		<!-- XChange Bitbay exchange support -->
 		<dependency>
 			<groupId>${project.groupId}</groupId>

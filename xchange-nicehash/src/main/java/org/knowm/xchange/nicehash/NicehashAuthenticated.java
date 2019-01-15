@@ -1,16 +1,15 @@
 package org.knowm.xchange.nicehash;
 
-import org.knowm.xchange.nicehash.dto.account.*;
-import org.knowm.xchange.nicehash.dto.trade.*;
-import org.knowm.xchange.nicehash.dto.NicehashException;
-import si.mazi.rescu.ParamsDigest;
-
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import org.knowm.xchange.nicehash.dto.NicehashException;
+import org.knowm.xchange.nicehash.dto.account.*;
+import org.knowm.xchange.nicehash.dto.trade.*;
+import si.mazi.rescu.ParamsDigest;
 
 @Path("")
 @Produces(MediaType.APPLICATION_JSON)
@@ -41,19 +40,19 @@ public interface NicehashAuthenticated extends Nicehash {
    * @throws NicehashException
    */
   NicehashNewOrder newOrder(
-          @FormParam("symbol") String symbol,
-          @FormParam("side") OrderSide side,
-          @FormParam("type") OrderType type,
-          @FormParam("timeInForce") TimeInForce timeInForce,
-          @FormParam("quantity") BigDecimal quantity,
-          @FormParam("price") BigDecimal price,
-          @FormParam("newClientOrderId") String newClientOrderId,
-          @FormParam("stopPrice") BigDecimal stopPrice,
-          @FormParam("icebergQty") BigDecimal icebergQty,
-          @FormParam("recvWindow") Long recvWindow,
-          @FormParam("timestamp") long timestamp,
-          @HeaderParam(X_MBX_APIKEY) String apiKey,
-          @QueryParam(SIGNATURE) ParamsDigest signature)
+      @FormParam("symbol") String symbol,
+      @FormParam("side") OrderSide side,
+      @FormParam("type") OrderType type,
+      @FormParam("timeInForce") TimeInForce timeInForce,
+      @FormParam("quantity") BigDecimal quantity,
+      @FormParam("price") BigDecimal price,
+      @FormParam("newClientOrderId") String newClientOrderId,
+      @FormParam("stopPrice") BigDecimal stopPrice,
+      @FormParam("icebergQty") BigDecimal icebergQty,
+      @FormParam("recvWindow") Long recvWindow,
+      @FormParam("timestamp") long timestamp,
+      @HeaderParam(X_MBX_APIKEY) String apiKey,
+      @QueryParam(SIGNATURE) ParamsDigest signature)
       throws IOException, NicehashException;
 
   @POST
@@ -79,19 +78,19 @@ public interface NicehashAuthenticated extends Nicehash {
    * @throws NicehashException
    */
   Object testNewOrder(
-          @FormParam("symbol") String symbol,
-          @FormParam("side") OrderSide side,
-          @FormParam("type") OrderType type,
-          @FormParam("timeInForce") TimeInForce timeInForce,
-          @FormParam("quantity") BigDecimal quantity,
-          @FormParam("price") BigDecimal price,
-          @FormParam("newClientOrderId") String newClientOrderId,
-          @FormParam("stopPrice") BigDecimal stopPrice,
-          @FormParam("icebergQty") BigDecimal icebergQty,
-          @FormParam("recvWindow") Long recvWindow,
-          @FormParam("timestamp") long timestamp,
-          @HeaderParam(X_MBX_APIKEY) String apiKey,
-          @QueryParam(SIGNATURE) ParamsDigest signature)
+      @FormParam("symbol") String symbol,
+      @FormParam("side") OrderSide side,
+      @FormParam("type") OrderType type,
+      @FormParam("timeInForce") TimeInForce timeInForce,
+      @FormParam("quantity") BigDecimal quantity,
+      @FormParam("price") BigDecimal price,
+      @FormParam("newClientOrderId") String newClientOrderId,
+      @FormParam("stopPrice") BigDecimal stopPrice,
+      @FormParam("icebergQty") BigDecimal icebergQty,
+      @FormParam("recvWindow") Long recvWindow,
+      @FormParam("timestamp") long timestamp,
+      @HeaderParam(X_MBX_APIKEY) String apiKey,
+      @QueryParam(SIGNATURE) ParamsDigest signature)
       throws IOException, NicehashException;
 
   @GET
@@ -112,13 +111,13 @@ public interface NicehashAuthenticated extends Nicehash {
    * @throws NicehashException
    */
   NicehashOrder orderStatus(
-          @QueryParam("symbol") String symbol,
-          @QueryParam("orderId") long orderId,
-          @QueryParam("origClientOrderId") String origClientOrderId,
-          @QueryParam("recvWindow") Long recvWindow,
-          @QueryParam("timestamp") long timestamp,
-          @HeaderParam(X_MBX_APIKEY) String apiKey,
-          @QueryParam(SIGNATURE) ParamsDigest signature)
+      @QueryParam("symbol") String symbol,
+      @QueryParam("orderId") long orderId,
+      @QueryParam("origClientOrderId") String origClientOrderId,
+      @QueryParam("recvWindow") Long recvWindow,
+      @QueryParam("timestamp") long timestamp,
+      @HeaderParam(X_MBX_APIKEY) String apiKey,
+      @QueryParam(SIGNATURE) ParamsDigest signature)
       throws IOException, NicehashException;
 
   @DELETE
@@ -140,14 +139,14 @@ public interface NicehashAuthenticated extends Nicehash {
    * @throws NicehashException
    */
   NicehashCancelledOrder cancelOrder(
-          @QueryParam("symbol") String symbol,
-          @QueryParam("orderId") long orderId,
-          @QueryParam("origClientOrderId") String origClientOrderId,
-          @QueryParam("newClientOrderId") String newClientOrderId,
-          @QueryParam("recvWindow") Long recvWindow,
-          @QueryParam("timestamp") long timestamp,
-          @HeaderParam(X_MBX_APIKEY) String apiKey,
-          @QueryParam(SIGNATURE) ParamsDigest signature)
+      @QueryParam("symbol") String symbol,
+      @QueryParam("orderId") long orderId,
+      @QueryParam("origClientOrderId") String origClientOrderId,
+      @QueryParam("newClientOrderId") String newClientOrderId,
+      @QueryParam("recvWindow") Long recvWindow,
+      @QueryParam("timestamp") long timestamp,
+      @HeaderParam(X_MBX_APIKEY) String apiKey,
+      @QueryParam(SIGNATURE) ParamsDigest signature)
       throws IOException, NicehashException;
 
   @GET
@@ -163,11 +162,11 @@ public interface NicehashAuthenticated extends Nicehash {
    * @throws NicehashException
    */
   List<NicehashOrder> openOrders(
-          @QueryParam("symbol") String symbol,
-          @QueryParam("recvWindow") Long recvWindow,
-          @QueryParam("timestamp") long timestamp,
-          @HeaderParam(X_MBX_APIKEY) String apiKey,
-          @QueryParam(SIGNATURE) ParamsDigest signature)
+      @QueryParam("symbol") String symbol,
+      @QueryParam("recvWindow") Long recvWindow,
+      @QueryParam("timestamp") long timestamp,
+      @HeaderParam(X_MBX_APIKEY) String apiKey,
+      @QueryParam(SIGNATURE) ParamsDigest signature)
       throws IOException, NicehashException;
 
   @GET
@@ -183,10 +182,10 @@ public interface NicehashAuthenticated extends Nicehash {
    * @throws NicehashException
    */
   List<NicehashOrder> openOrders(
-          @QueryParam("recvWindow") Long recvWindow,
-          @QueryParam("timestamp") long timestamp,
-          @HeaderParam(X_MBX_APIKEY) String apiKey,
-          @QueryParam(SIGNATURE) ParamsDigest signature)
+      @QueryParam("recvWindow") Long recvWindow,
+      @QueryParam("timestamp") long timestamp,
+      @HeaderParam(X_MBX_APIKEY) String apiKey,
+      @QueryParam(SIGNATURE) ParamsDigest signature)
       throws IOException, NicehashException;
 
   @GET
@@ -208,13 +207,13 @@ public interface NicehashAuthenticated extends Nicehash {
    * @throws NicehashException
    */
   List<NicehashOrder> allOrders(
-          @QueryParam("symbol") String symbol,
-          @QueryParam("orderId") Long orderId,
-          @QueryParam("limit") Integer limit,
-          @QueryParam("recvWindow") Long recvWindow,
-          @QueryParam("timestamp") long timestamp,
-          @HeaderParam(X_MBX_APIKEY) String apiKey,
-          @QueryParam(SIGNATURE) ParamsDigest signature)
+      @QueryParam("symbol") String symbol,
+      @QueryParam("orderId") Long orderId,
+      @QueryParam("limit") Integer limit,
+      @QueryParam("recvWindow") Long recvWindow,
+      @QueryParam("timestamp") long timestamp,
+      @HeaderParam(X_MBX_APIKEY) String apiKey,
+      @QueryParam(SIGNATURE) ParamsDigest signature)
       throws IOException, NicehashException;
 
   @GET
@@ -229,10 +228,10 @@ public interface NicehashAuthenticated extends Nicehash {
    * @throws NicehashException
    */
   NicehashAccountInformation account(
-          @QueryParam("recvWindow") Long recvWindow,
-          @QueryParam("timestamp") long timestamp,
-          @HeaderParam(X_MBX_APIKEY) String apiKey,
-          @QueryParam(SIGNATURE) ParamsDigest signature)
+      @QueryParam("recvWindow") Long recvWindow,
+      @QueryParam("timestamp") long timestamp,
+      @HeaderParam(X_MBX_APIKEY) String apiKey,
+      @QueryParam(SIGNATURE) ParamsDigest signature)
       throws IOException, NicehashException;
 
   @GET
@@ -252,13 +251,13 @@ public interface NicehashAuthenticated extends Nicehash {
    * @throws NicehashException
    */
   List<NicehashTrade> myTrades(
-          @QueryParam("symbol") String symbol,
-          @QueryParam("limit") Integer limit,
-          @QueryParam("fromId") Long fromId,
-          @QueryParam("recvWindow") Long recvWindow,
-          @QueryParam("timestamp") long timestamp,
-          @HeaderParam(X_MBX_APIKEY) String apiKey,
-          @QueryParam(SIGNATURE) ParamsDigest signature)
+      @QueryParam("symbol") String symbol,
+      @QueryParam("limit") Integer limit,
+      @QueryParam("fromId") Long fromId,
+      @QueryParam("recvWindow") Long recvWindow,
+      @QueryParam("timestamp") long timestamp,
+      @HeaderParam(X_MBX_APIKEY) String apiKey,
+      @QueryParam(SIGNATURE) ParamsDigest signature)
       throws IOException, NicehashException;
 
   @POST
@@ -280,15 +279,15 @@ public interface NicehashAuthenticated extends Nicehash {
    * @throws NicehashException
    */
   WithdrawRequest withdraw(
-          @FormParam("asset") String asset,
-          @FormParam("address") String address,
-          @FormParam("addressTag") String addressTag,
-          @FormParam("amount") BigDecimal amount,
-          @FormParam("name") String name,
-          @FormParam("recvWindow") Long recvWindow,
-          @FormParam("timestamp") long timestamp,
-          @HeaderParam(X_MBX_APIKEY) String apiKey,
-          @QueryParam(SIGNATURE) ParamsDigest signature)
+      @FormParam("asset") String asset,
+      @FormParam("address") String address,
+      @FormParam("addressTag") String addressTag,
+      @FormParam("amount") BigDecimal amount,
+      @FormParam("name") String name,
+      @FormParam("recvWindow") Long recvWindow,
+      @FormParam("timestamp") long timestamp,
+      @HeaderParam(X_MBX_APIKEY) String apiKey,
+      @QueryParam(SIGNATURE) ParamsDigest signature)
       throws IOException, NicehashException;
 
   @GET
@@ -308,13 +307,13 @@ public interface NicehashAuthenticated extends Nicehash {
    * @throws NicehashException
    */
   DepositList depositHistory(
-          @QueryParam("asset") String asset,
-          @QueryParam("startTime") Long startTime,
-          @QueryParam("endTime") Long endTime,
-          @QueryParam("recvWindow") Long recvWindow,
-          @QueryParam("timestamp") long timestamp,
-          @HeaderParam(X_MBX_APIKEY) String apiKey,
-          @QueryParam(SIGNATURE) ParamsDigest signature)
+      @QueryParam("asset") String asset,
+      @QueryParam("startTime") Long startTime,
+      @QueryParam("endTime") Long endTime,
+      @QueryParam("recvWindow") Long recvWindow,
+      @QueryParam("timestamp") long timestamp,
+      @HeaderParam(X_MBX_APIKEY) String apiKey,
+      @QueryParam(SIGNATURE) ParamsDigest signature)
       throws IOException, NicehashException;
 
   @GET
@@ -334,13 +333,13 @@ public interface NicehashAuthenticated extends Nicehash {
    * @throws NicehashException
    */
   WithdrawList withdrawHistory(
-          @QueryParam("asset") String asset,
-          @QueryParam("startTime") Long startTime,
-          @QueryParam("endTime") Long endTime,
-          @QueryParam("recvWindow") Long recvWindow,
-          @QueryParam("timestamp") long timestamp,
-          @HeaderParam(X_MBX_APIKEY) String apiKey,
-          @QueryParam(SIGNATURE) ParamsDigest signature)
+      @QueryParam("asset") String asset,
+      @QueryParam("startTime") Long startTime,
+      @QueryParam("endTime") Long endTime,
+      @QueryParam("recvWindow") Long recvWindow,
+      @QueryParam("timestamp") long timestamp,
+      @HeaderParam(X_MBX_APIKEY) String apiKey,
+      @QueryParam(SIGNATURE) ParamsDigest signature)
       throws IOException, NicehashException;
 
   @GET
@@ -358,11 +357,11 @@ public interface NicehashAuthenticated extends Nicehash {
    * @throws NicehashException
    */
   DepositAddress depositAddress(
-          @QueryParam("asset") String asset,
-          @QueryParam("recvWindow") Long recvWindow,
-          @QueryParam("timestamp") long timestamp,
-          @HeaderParam(X_MBX_APIKEY) String apiKey,
-          @QueryParam(SIGNATURE) ParamsDigest signature)
+      @QueryParam("asset") String asset,
+      @QueryParam("recvWindow") Long recvWindow,
+      @QueryParam("timestamp") long timestamp,
+      @HeaderParam(X_MBX_APIKEY) String apiKey,
+      @QueryParam(SIGNATURE) ParamsDigest signature)
       throws IOException, NicehashException;
 
   /**
@@ -390,7 +389,7 @@ public interface NicehashAuthenticated extends Nicehash {
   @PUT
   @Path("/api/v1/userDataStream?listenKey={listenKey}")
   Map<?, ?> keepAliveUserDataStream(
-          @HeaderParam(X_MBX_APIKEY) String apiKey, @PathParam("listenKey") String listenKey)
+      @HeaderParam(X_MBX_APIKEY) String apiKey, @PathParam("listenKey") String listenKey)
       throws IOException, NicehashException;
 
   /**
@@ -405,6 +404,6 @@ public interface NicehashAuthenticated extends Nicehash {
   @DELETE
   @Path("/api/v1/userDataStream?listenKey={listenKey}")
   Map<?, ?> closeUserDataStream(
-          @HeaderParam(X_MBX_APIKEY) String apiKey, @PathParam("listenKey") String listenKey)
+      @HeaderParam(X_MBX_APIKEY) String apiKey, @PathParam("listenKey") String listenKey)
       throws IOException, NicehashException;
 }

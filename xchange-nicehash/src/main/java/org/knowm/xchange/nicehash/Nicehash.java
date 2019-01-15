@@ -1,17 +1,16 @@
 package org.knowm.xchange.nicehash;
 
-import org.knowm.xchange.nicehash.dto.marketdata.*;
-import org.knowm.xchange.nicehash.dto.meta.exchangeinfo.NicehashExchangeInfo;
-import org.knowm.xchange.nicehash.dto.NicehashException;
-import org.knowm.xchange.nicehash.dto.meta.NicehashTime;
-
+import java.io.IOException;
+import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-import java.io.IOException;
-import java.util.List;
+import org.knowm.xchange.nicehash.dto.NicehashException;
+import org.knowm.xchange.nicehash.dto.marketdata.*;
+import org.knowm.xchange.nicehash.dto.meta.NicehashTime;
+import org.knowm.xchange.nicehash.dto.meta.exchangeinfo.NicehashExchangeInfo;
 
 @Path("")
 @Produces(MediaType.APPLICATION_JSON)
@@ -79,11 +78,11 @@ public interface Nicehash {
    * @throws NicehashException
    */
   List<NicehashAggTrades> aggTrades(
-          @QueryParam("symbol") String symbol,
-          @QueryParam("fromId") Long fromId,
-          @QueryParam("startTime") Long startTime,
-          @QueryParam("endTime") Long endTime,
-          @QueryParam("limit") Integer limit)
+      @QueryParam("symbol") String symbol,
+      @QueryParam("fromId") Long fromId,
+      @QueryParam("startTime") Long startTime,
+      @QueryParam("endTime") Long endTime,
+      @QueryParam("limit") Integer limit)
       throws IOException, NicehashException;
 
   @GET
@@ -102,11 +101,11 @@ public interface Nicehash {
    * @throws NicehashException
    */
   List<Object[]> klines(
-          @QueryParam("symbol") String symbol,
-          @QueryParam("interval") String interval,
-          @QueryParam("limit") Integer limit,
-          @QueryParam("startTime") Long startTime,
-          @QueryParam("endTime") Long endTime)
+      @QueryParam("symbol") String symbol,
+      @QueryParam("interval") String interval,
+      @QueryParam("limit") Integer limit,
+      @QueryParam("startTime") Long startTime,
+      @QueryParam("endTime") Long endTime)
       throws IOException, NicehashException;
 
   @GET
