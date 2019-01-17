@@ -1,9 +1,9 @@
 package org.knowm.xchange.nicehash;
 
-import org.knowm.xchange.nicehash.dto.trade.OrderStatus;
-import org.knowm.xchange.nicehash.dto.trade.NicehashOrder;
-import org.knowm.xchange.nicehash.dto.trade.OrderSide;
-import org.knowm.xchange.nicehash.service.NicehashTradeService.NicehashOrderFlags;
+import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 import org.knowm.xchange.currency.Currency;
 import org.knowm.xchange.currency.CurrencyPair;
 import org.knowm.xchange.dto.Order;
@@ -11,11 +11,10 @@ import org.knowm.xchange.dto.Order.OrderType;
 import org.knowm.xchange.dto.trade.LimitOrder;
 import org.knowm.xchange.dto.trade.MarketOrder;
 import org.knowm.xchange.dto.trade.StopOrder;
-
-import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import org.knowm.xchange.nicehash.dto.trade.NicehashOrder;
+import org.knowm.xchange.nicehash.dto.trade.OrderSide;
+import org.knowm.xchange.nicehash.dto.trade.OrderStatus;
+import org.knowm.xchange.nicehash.service.NicehashTradeService.NicehashOrderFlags;
 
 public class NicehashAdapters {
 

@@ -1,16 +1,15 @@
 package org.knowm.xchange.nicehash.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.knowm.xchange.Exchange;
-import org.knowm.xchange.nicehash.NicehashAdapters;
-import org.knowm.xchange.nicehash.dto.account.*;
-import org.knowm.xchange.currency.Currency;
-import org.knowm.xchange.nicehash.dto.NicehashException;
-import org.knowm.xchange.nicehash.dto.account.NicehashAccountInformation;
-
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
+import org.knowm.xchange.Exchange;
+import org.knowm.xchange.currency.Currency;
+import org.knowm.xchange.nicehash.NicehashAdapters;
+import org.knowm.xchange.nicehash.dto.NicehashException;
+import org.knowm.xchange.nicehash.dto.account.*;
+import org.knowm.xchange.nicehash.dto.account.NicehashAccountInformation;
 
 public class NicehashAccountServiceRaw extends NicehashBaseService {
 
@@ -22,9 +21,6 @@ public class NicehashAccountServiceRaw extends NicehashBaseService {
       throws NicehashException, IOException {
     return nicehash.account(recvWindow, timestamp, super.apiKey, super.signatureCreator);
   }
-
-  // the /wapi endpoint of nicehash is not stable yet and can be changed in future, there is also a
-  // lack of current documentation
 
   public String withdraw(String asset, String address, BigDecimal amount)
       throws IOException, NicehashException {

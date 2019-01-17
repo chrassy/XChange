@@ -14,6 +14,10 @@ import org.knowm.xchange.dto.meta.CurrencyMetaData;
 import org.knowm.xchange.dto.meta.CurrencyPairMetaData;
 import org.knowm.xchange.exceptions.ExchangeException;
 import org.knowm.xchange.nicehash.dto.meta.exchangeinfo.NicehashExchangeInfo;
+import org.knowm.xchange.nicehash.dto.meta.exchangeinfo.Symbol;
+import org.knowm.xchange.nicehash.service.NicehashAccountService;
+import org.knowm.xchange.nicehash.service.NicehashMarketDataService;
+import org.knowm.xchange.nicehash.service.NicehashTradeService;
 import org.knowm.xchange.utils.AuthUtils;
 import org.knowm.xchange.utils.nonce.AtomicLongCurrentTimeIncrementalNonceFactory;
 import org.slf4j.Logger;
@@ -36,9 +40,9 @@ public class NicehashExchange extends BaseExchange {
   @Override
   protected void initServices() {
 
-    /* this.marketDataService = new BinanceMarketDataService(this);
-    this.tradeService = new BinanceTradeService(this);
-    this.accountService = new BinanceAccountService(this);*/
+    this.marketDataService = new NicehashMarketDataService(this);
+    this.tradeService = new NicehashTradeService(this);
+    this.accountService = new NicehashAccountService(this);
   }
 
   @Override
@@ -51,12 +55,15 @@ public class NicehashExchange extends BaseExchange {
   public ExchangeSpecification getDefaultExchangeSpecification() {
 
     ExchangeSpecification spec = new ExchangeSpecification(this.getClass().getCanonicalName());
-    spec.setSslUri("https://api.nicehash.com");
+    spec.setSslUri("https://api-test.nicehash.com/exchange/");
     spec.setHost("www.nicehash.com");
     spec.setPort(80);
     spec.setExchangeName("Nicehash");
     spec.setExchangeDescription("Nicehash Exchange.");
-    AuthUtils.setApiAndSecretKey(spec, "nicehash");
+    /**     * Temporary api and api secret of testing acc for development purposes    * **/
+      spec.setSecretKey("108a013e-a342-4b41-bb2b-ddc32c0ee84f61d32497-eb9d-41b0-98c1-9f81c671df9a");
+      spec.setApiKey("c466544e-bcb0-43f7-a602-10c5b463622e");
+    //AuthUtils.setApiAndSecretKey(spec, "nicehash");
     return spec;
   }
 
@@ -73,12 +80,12 @@ public class NicehashExchange extends BaseExchange {
       Map<CurrencyPair, CurrencyPairMetaData> currencyPairs = exchangeMetaData.getCurrencyPairs();
       Map<Currency, CurrencyMetaData> currencies = exchangeMetaData.getCurrencies();
 
-      /*  BinanceMarketDataService marketDataService =
-          (BinanceMarketDataService) this.marketDataService;
+      NicehashMarketDataService marketDataService =
+          (NicehashMarketDataService) this.marketDataService;
       exchangeInfo = marketDataService.getExchangeInfo();
       Symbol[] symbols = exchangeInfo.getSymbols();
 
-      for (BinancePrice price : marketDataService.tickerAllPrices()) {
+      /* for (NicehashPrice price : marketDataService.tickerAllPrices()) {
         CurrencyPair pair = price.getCurrencyPair();
 
         for (Symbol symbol : symbols) {
@@ -113,9 +120,8 @@ public class NicehashExchange extends BaseExchange {
                     minQty, // Min amount
                     maxQty, // Max amount
                     pairPrecision, // precision
-                    null /* TODO get fee tiers, although this is not necessary now
-                         because their API returns current fee directly */
-      /*));
+                    null
+      ));
             currencies.put(
                 pair.base,
                 new CurrencyMetaData(

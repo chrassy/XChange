@@ -150,7 +150,7 @@ public interface NicehashAuthenticated extends Nicehash {
       throws IOException, NicehashException;
 
   @GET
-  @Path("api/v3/openOrders")
+  @Path("api/v1/openOrders")
   /**
    * Get all open orders on a symbol.
    *
@@ -217,7 +217,7 @@ public interface NicehashAuthenticated extends Nicehash {
       throws IOException, NicehashException;
 
   @GET
-  @Path("api/v3/account")
+  @Path("api/v1/account")
   /**
    * Get current account information.
    *
@@ -229,7 +229,7 @@ public interface NicehashAuthenticated extends Nicehash {
    */
   NicehashAccountInformation account(
       @QueryParam("recvWindow") Long recvWindow,
-      @QueryParam("timestamp") long timestamp,
+      @QueryParam("timestamp") Long timestamp,
       @HeaderParam(X_MBX_APIKEY) String apiKey,
       @QueryParam(SIGNATURE) ParamsDigest signature)
       throws IOException, NicehashException;

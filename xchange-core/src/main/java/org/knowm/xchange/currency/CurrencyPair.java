@@ -338,6 +338,13 @@ public class CurrencyPair implements Comparable<CurrencyPair>, Serializable {
   public static final CurrencyPair BNK_BTC = new CurrencyPair(Currency.BNK, Currency.BTC);
   public static final CurrencyPair BNK_ETH = new CurrencyPair(Currency.BNK, Currency.ETH);
 
+  // Test coin pairs
+  public static final CurrencyPair TBCH_TBTC = new CurrencyPair(Currency.TBCH, Currency.TBTC);
+  public static final CurrencyPair TETH_TBTC = new CurrencyPair(Currency.TETH, Currency.TBTC);
+  public static final CurrencyPair TZEC_TBTC = new CurrencyPair(Currency.TZEC, Currency.TBTC);
+  public static final CurrencyPair TXRP_TBTC = new CurrencyPair(Currency.TXRP, Currency.TBTC);
+  public static final CurrencyPair TLTC_TBTC = new CurrencyPair(Currency.TLTC, Currency.TBTC);
+
   public final Currency base;
   public final Currency counter;
 

@@ -5,7 +5,6 @@ import org.knowm.xchange.exceptions.CurrencyPairNotValidException;
 import org.knowm.xchange.exceptions.ExchangeException;
 import org.knowm.xchange.nicehash.dto.NicehashException;
 
-/** @author walec51 */
 public final class NicehashErrorAdapter {
 
   private NicehashErrorAdapter() {}

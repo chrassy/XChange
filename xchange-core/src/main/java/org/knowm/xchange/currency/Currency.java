@@ -296,6 +296,15 @@ public class Currency implements Comparable<Currency>, Serializable {
   public static final Currency ELF = createCurrency("ELF", "aelf", null);
   public static final Currency STORJ = createCurrency("STORJ", "Storj", null);
   public static final Currency MOD = createCurrency("MOD", "Modum", null);
+
+  // test currencies
+  public static final Currency TBTC = createCurrency("TBTC", "testBitcoin", null);
+  public static final Currency TLTC = createCurrency("TLTC", "testLitecoin", null);
+  public static final Currency TETH = createCurrency("TETH", "testEthereum", null);
+  public static final Currency TBCH = createCurrency("TBCH", "testBitcoinCash", null);
+  public static final Currency TZEC = createCurrency("TZEC", "testZcash", null);
+  public static final Currency TXRP = createCurrency("TXRP", "testRipple", null);
+
   private final String code;
   private final CurrencyAttributes attributes;
 
