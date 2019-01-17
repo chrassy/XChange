@@ -19,7 +19,7 @@ public interface NicehashAuthenticated extends Nicehash {
   static final String X_MBX_APIKEY = "X-MBX-APIKEY";
 
   @POST
-  @Path("api/v3/order")
+  @Path("api/v1/order")
   /**
    * Send in a new order
    *
@@ -56,7 +56,7 @@ public interface NicehashAuthenticated extends Nicehash {
       throws IOException, NicehashException;
 
   @POST
-  @Path("api/v3/order/test")
+  @Path("api/v1/order/test")
   /**
    * Test new order creation and signature/recvWindow long. Creates and validates a new order but
    * does not send it into the matching engine.
@@ -94,7 +94,7 @@ public interface NicehashAuthenticated extends Nicehash {
       throws IOException, NicehashException;
 
   @GET
-  @Path("api/v3/order")
+  @Path("api/v1/order")
   /**
    * Check an order's status.<br>
    * Either orderId or origClientOrderId must be sent.
@@ -121,7 +121,7 @@ public interface NicehashAuthenticated extends Nicehash {
       throws IOException, NicehashException;
 
   @DELETE
-  @Path("api/v3/order")
+  @Path("api/v1/order")
   /**
    * Cancel an active order.
    *
@@ -170,7 +170,7 @@ public interface NicehashAuthenticated extends Nicehash {
       throws IOException, NicehashException;
 
   @GET
-  @Path("api/v3/openOrders")
+  @Path("api/v1/openOrders")
   /**
    * Get all open orders without a symbol.
    *
@@ -189,7 +189,7 @@ public interface NicehashAuthenticated extends Nicehash {
       throws IOException, NicehashException;
 
   @GET
-  @Path("api/v3/allOrders")
+  @Path("api/v1/allOrders")
   /**
    * Get all account orders; active, canceled, or filled. <br>
    * If orderId is set, it will get orders >= that orderId. Otherwise most recent orders are
@@ -235,7 +235,7 @@ public interface NicehashAuthenticated extends Nicehash {
       throws IOException, NicehashException;
 
   @GET
-  @Path("api/v3/myTrades")
+  @Path("api/v1/myTrades")
   /**
    * Get trades for a specific account and symbol.
    *
@@ -259,151 +259,6 @@ public interface NicehashAuthenticated extends Nicehash {
       @HeaderParam(X_MBX_APIKEY) String apiKey,
       @QueryParam(SIGNATURE) ParamsDigest signature)
       throws IOException, NicehashException;
-
-  @POST
-  @Path("wapi/v3/withdraw.html")
-  /**
-   * Submit a withdraw request.
-   *
-   * @param asset
-   * @param address
-   * @param addressTag optional for Ripple
-   * @param amount
-   * @param name optional, description of the address
-   * @param recvWindow optional
-   * @param timestamp
-   * @param apiKey
-   * @param signature
-   * @return
-   * @throws IOException
-   * @throws NicehashException
-   */
-  WithdrawRequest withdraw(
-      @FormParam("asset") String asset,
-      @FormParam("address") String address,
-      @FormParam("addressTag") String addressTag,
-      @FormParam("amount") BigDecimal amount,
-      @FormParam("name") String name,
-      @FormParam("recvWindow") Long recvWindow,
-      @FormParam("timestamp") long timestamp,
-      @HeaderParam(X_MBX_APIKEY) String apiKey,
-      @QueryParam(SIGNATURE) ParamsDigest signature)
-      throws IOException, NicehashException;
-
-  @GET
-  @Path("wapi/v3/depositHistory.html")
-  /**
-   * Fetch deposit history.
-   *
-   * @param asset optional
-   * @param startTime optional
-   * @param endTime optional
-   * @param recvWindow optional
-   * @param timestamp
-   * @param apiKey
-   * @param signature
-   * @return
-   * @throws IOException
-   * @throws NicehashException
-   */
-  DepositList depositHistory(
-      @QueryParam("asset") String asset,
-      @QueryParam("startTime") Long startTime,
-      @QueryParam("endTime") Long endTime,
-      @QueryParam("recvWindow") Long recvWindow,
-      @QueryParam("timestamp") long timestamp,
-      @HeaderParam(X_MBX_APIKEY) String apiKey,
-      @QueryParam(SIGNATURE) ParamsDigest signature)
-      throws IOException, NicehashException;
-
-  @GET
-  @Path("wapi/v3/withdrawHistory.html")
-  /**
-   * Fetch withdraw history.
-   *
-   * @param asset optional
-   * @param startTime optional
-   * @param endTime optional
-   * @param recvWindow optional
-   * @param timestamp
-   * @param apiKey
-   * @param signature
-   * @return
-   * @throws IOException
-   * @throws NicehashException
-   */
-  WithdrawList withdrawHistory(
-      @QueryParam("asset") String asset,
-      @QueryParam("startTime") Long startTime,
-      @QueryParam("endTime") Long endTime,
-      @QueryParam("recvWindow") Long recvWindow,
-      @QueryParam("timestamp") long timestamp,
-      @HeaderParam(X_MBX_APIKEY) String apiKey,
-      @QueryParam(SIGNATURE) ParamsDigest signature)
-      throws IOException, NicehashException;
-
-  @GET
-  @Path("wapi/v3/depositAddress.html")
-  /**
-   * Fetch deposit address.
-   *
-   * @param asset
-   * @param recvWindow
-   * @param timestamp
-   * @param apiKey
-   * @param signature
-   * @return
-   * @throws IOException
-   * @throws NicehashException
-   */
-  DepositAddress depositAddress(
-      @QueryParam("asset") String asset,
-      @QueryParam("recvWindow") Long recvWindow,
-      @QueryParam("timestamp") long timestamp,
-      @HeaderParam(X_MBX_APIKEY) String apiKey,
-      @QueryParam(SIGNATURE) ParamsDigest signature)
-      throws IOException, NicehashException;
-
-  /**
-   * Returns a listen key for websocket login.
-   *
-   * @param apiKey the api key
-   * @return
-   * @throws NicehashException
-   * @throws IOException
-   */
-  @POST
-  @Path("/api/v1/userDataStream")
-  NicehashListenKey startUserDataStream(@HeaderParam(X_MBX_APIKEY) String apiKey)
-      throws IOException, NicehashException;
-
-  /**
-   * Keeps the authenticated websocket session alive.
-   *
-   * @param apiKey the api key
-   * @param listenKey the api secret
-   * @return
-   * @throws NicehashException
-   * @throws IOException
-   */
-  @PUT
-  @Path("/api/v1/userDataStream?listenKey={listenKey}")
-  Map<?, ?> keepAliveUserDataStream(
-      @HeaderParam(X_MBX_APIKEY) String apiKey, @PathParam("listenKey") String listenKey)
-      throws IOException, NicehashException;
-
-  /**
-   * Closes the websocket authenticated connection.
-   *
-   * @param apiKey the api key
-   * @param listenKey the api secret
-   * @return
-   * @throws NicehashException
-   * @throws IOException
-   */
-  @DELETE
-  @Path("/api/v1/userDataStream?listenKey={listenKey}")
-  Map<?, ?> closeUserDataStream(
-      @HeaderParam(X_MBX_APIKEY) String apiKey, @PathParam("listenKey") String listenKey)
-      throws IOException, NicehashException;
 }
+
+
