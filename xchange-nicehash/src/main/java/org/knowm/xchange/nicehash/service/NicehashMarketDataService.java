@@ -1,5 +1,9 @@
 package org.knowm.xchange.nicehash.service;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import org.knowm.xchange.Exchange;
 import org.knowm.xchange.currency.CurrencyPair;
 import org.knowm.xchange.dto.Order.OrderType;
@@ -18,11 +22,6 @@ import org.knowm.xchange.nicehash.dto.marketdata.NicehashOrderbook;
 import org.knowm.xchange.nicehash.dto.marketdata.NicehashTicker24h;
 import org.knowm.xchange.service.marketdata.MarketDataService;
 import org.knowm.xchange.service.marketdata.params.Params;
-
-import java.io.IOException;
-import java.util.List;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public class NicehashMarketDataService extends NicehashMarketDataServiceRaw
     implements MarketDataService {
@@ -113,7 +112,7 @@ public class NicehashMarketDataService extends NicehashMarketDataServiceRaw
               .map(
                   at ->
                       new Trade(
-                              NicehashAdapters.convertType(at.buyerMaker),
+                          NicehashAdapters.convertType(at.buyerMaker),
                           at.quantity,
                           pair,
                           at.price,

@@ -145,16 +145,4 @@ public class NicehashTradeServiceRaw extends NicehashBaseService {
         super.apiKey,
         super.signatureCreator);
   }
-
-  public NicehashListenKey startUserDataStream() throws IOException {
-    return nicehash.startUserDataStream(apiKey);
-  }
-
-  public void keepAliveDataStream(String listenKey) throws IOException {
-    nicehash.keepAliveUserDataStream(apiKey, listenKey);
-  }
-
-  public void closeDataStream(String listenKey) throws IOException {
-    nicehash.closeUserDataStream(apiKey, listenKey);
-  }
 }

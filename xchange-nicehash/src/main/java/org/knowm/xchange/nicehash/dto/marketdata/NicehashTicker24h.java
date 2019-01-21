@@ -13,12 +13,10 @@ public final class NicehashTicker24h {
   private final BigDecimal priceChangePercent;
   private final BigDecimal weightedAvgPrice;
   private final BigDecimal prevClosePrice;
-  private final BigDecimal lastPrice;
-  private final BigDecimal lastQty;
   private final BigDecimal bidPrice;
-  private final BigDecimal bidQty;
+  private final BigDecimal bidQuantity;
   private final BigDecimal askPrice;
-  private final BigDecimal askQty;
+  private final BigDecimal askQuantity;
   private final BigDecimal openPrice;
   private final BigDecimal highPrice;
   private final BigDecimal lowPrice;
@@ -26,8 +24,8 @@ public final class NicehashTicker24h {
   private final BigDecimal quoteVolume;
   private final long openTime;
   private final long closeTime;
-  private final long firstId;
-  private final long lastId;
+  private final long firstNumber;
+  private final long lastNumber;
   private final long count;
   private final String symbol;
 
@@ -42,12 +40,10 @@ public final class NicehashTicker24h {
       @JsonProperty("priceChangePercent") BigDecimal priceChangePercent,
       @JsonProperty("weightedAvgPrice") BigDecimal weightedAvgPrice,
       @JsonProperty("prevClosePrice") BigDecimal prevClosePrice,
-      @JsonProperty("lastPrice") BigDecimal lastPrice,
-      @JsonProperty("lastQty") BigDecimal lastQty,
       @JsonProperty("bidPrice") BigDecimal bidPrice,
-      @JsonProperty("bidQty") BigDecimal bidQty,
+      @JsonProperty("bidQuantity") BigDecimal bidQuantity,
       @JsonProperty("askPrice") BigDecimal askPrice,
-      @JsonProperty("askQty") BigDecimal askQty,
+      @JsonProperty("askQuantity") BigDecimal askQuantity,
       @JsonProperty("openPrice") BigDecimal openPrice,
       @JsonProperty("highPrice") BigDecimal highPrice,
       @JsonProperty("lowPrice") BigDecimal lowPrice,
@@ -55,20 +51,18 @@ public final class NicehashTicker24h {
       @JsonProperty("quoteVolume") BigDecimal quoteVolume,
       @JsonProperty("openTime") long openTime,
       @JsonProperty("closeTime") long closeTime,
-      @JsonProperty("firstId") long firstId,
-      @JsonProperty("lastId") long lastId,
+      @JsonProperty("firstNumber") long firstNumber,
+      @JsonProperty("lastNumber") long lastNumber,
       @JsonProperty("count") long count,
       @JsonProperty("symbol") String symbol) {
     this.priceChange = priceChange;
     this.priceChangePercent = priceChangePercent;
     this.weightedAvgPrice = weightedAvgPrice;
     this.prevClosePrice = prevClosePrice;
-    this.lastPrice = lastPrice;
-    this.lastQty = lastQty;
     this.bidPrice = bidPrice;
-    this.bidQty = bidQty;
+    this.bidQuantity = bidQuantity;
     this.askPrice = askPrice;
-    this.askQty = askQty;
+    this.askQuantity = askQuantity;
     this.openPrice = openPrice;
     this.highPrice = highPrice;
     this.lowPrice = lowPrice;
@@ -76,8 +70,8 @@ public final class NicehashTicker24h {
     this.quoteVolume = quoteVolume;
     this.openTime = openTime;
     this.closeTime = closeTime;
-    this.firstId = firstId;
-    this.lastId = lastId;
+    this.firstNumber = firstNumber;
+    this.lastNumber = lastNumber;
     this.count = count;
     this.symbol = symbol;
   }
@@ -110,28 +104,20 @@ public final class NicehashTicker24h {
     return prevClosePrice;
   }
 
-  public BigDecimal getLastPrice() {
-    return lastPrice;
-  }
-
-  public BigDecimal getLastQty() {
-    return lastQty;
-  }
-
   public BigDecimal getBidPrice() {
     return bidPrice;
   }
 
-  public BigDecimal getBidQty() {
-    return bidQty;
+  public BigDecimal getBidQuantity() {
+    return bidQuantity;
   }
 
   public BigDecimal getAskPrice() {
     return askPrice;
   }
 
-  public BigDecimal getAskQty() {
-    return askQty;
+  public BigDecimal getAskQuantity() {
+    return askQuantity;
   }
 
   public BigDecimal getOpenPrice() {
@@ -155,11 +141,11 @@ public final class NicehashTicker24h {
   }
 
   public long getFirstTradeId() {
-    return firstId;
+    return firstNumber;
   }
 
   public long getLastTradeId() {
-    return lastId;
+    return lastNumber;
   }
 
   public long getTradeCount() {
@@ -186,13 +172,12 @@ public final class NicehashTicker24h {
               .open(openPrice)
               .ask(askPrice)
               .bid(bidPrice)
-              .last(lastPrice)
               .high(highPrice)
               .low(lowPrice)
               .volume(volume)
               .vwap(weightedAvgPrice)
-              .askSize(askQty)
-              .bidSize(bidQty)
+              .askSize(askQuantity)
+              .bidSize(bidQuantity)
               .quoteVolume(quoteVolume)
               .build();
     }

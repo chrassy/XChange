@@ -1,14 +1,13 @@
 package org.knowm.xchange.nicehash.service;
 
-import org.knowm.xchange.Exchange;
-import org.knowm.xchange.nicehash.NicehashAdapters;
-import org.knowm.xchange.nicehash.dto.marketdata.*;
-import org.knowm.xchange.currency.CurrencyPair;
-import org.knowm.xchange.utils.StreamUtils;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.knowm.xchange.Exchange;
+import org.knowm.xchange.currency.CurrencyPair;
+import org.knowm.xchange.nicehash.NicehashAdapters;
+import org.knowm.xchange.nicehash.dto.marketdata.*;
+import org.knowm.xchange.utils.StreamUtils;
 
 public class NicehashMarketDataServiceRaw extends NicehashBaseService {
 
@@ -20,7 +19,8 @@ public class NicehashMarketDataServiceRaw extends NicehashBaseService {
     nicehash.ping();
   }
 
-  public NicehashOrderbook getNicehashOrderbook(CurrencyPair pair, Integer limit) throws IOException {
+  public NicehashOrderbook getNicehashOrderbook(CurrencyPair pair, Integer limit)
+      throws IOException {
     return nicehash.depth(NicehashAdapters.toSymbol(pair), limit);
   }
 
@@ -42,7 +42,8 @@ public class NicehashMarketDataServiceRaw extends NicehashBaseService {
       CurrencyPair pair, KlineInterval interval, Integer limit, Long startTime, Long endTime)
       throws IOException {
     List<Object[]> raw =
-        nicehash.klines(NicehashAdapters.toSymbol(pair), interval.code(), limit, startTime, endTime);
+        nicehash.klines(
+            NicehashAdapters.toSymbol(pair), interval.code(), limit, startTime, endTime);
     return raw.stream()
         .map(obj -> new NicehashKline(pair, interval, obj))
         .collect(Collectors.toList());
@@ -67,7 +68,7 @@ public class NicehashMarketDataServiceRaw extends NicehashBaseService {
   }
 
   public List<NicehashPrice> tickerAllPrices() throws IOException {
-    return nicehash.tickerAllPrices();
+    return nicehash.tickerAllPrices(null);
   }
 
   public List<NicehashPriceQuantity> tickerAllBookTickers() throws IOException {

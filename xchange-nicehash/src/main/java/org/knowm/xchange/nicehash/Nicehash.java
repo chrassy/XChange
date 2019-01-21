@@ -112,7 +112,7 @@ public interface Nicehash {
   @Path("api/v1/ticker/24hr")
   /**
    * 24 hour price change statistics for all symbols. - bee carreful this api call have a big
-   * weight, only about 4 call per minut can be without ban.
+   * weight.
    *
    * @return
    * @throws IOException
@@ -134,18 +134,18 @@ public interface Nicehash {
       throws IOException, NicehashException;
 
   @GET
-  @Path("api/v1/ticker/allPrices")
+  @Path("api/v1/ticker/price")
   /**
-   * Latest price for all symbols.
-   *
+   * @param symbol, optinal; if null latest price for all symbols. *
    * @return
    * @throws IOException
    * @throws NicehashException
    */
-  List<NicehashPrice> tickerAllPrices() throws IOException, NicehashException;
+  List<NicehashPrice> tickerAllPrices(@QueryParam("symbol") String symbol)
+      throws IOException, NicehashException;
 
   @GET
-  @Path("api/v1/ticker/allBookTickers")
+  @Path("api/v1/ticker/bookTicker")
   /**
    * Best price/qty on the order book for all symbols.
    *

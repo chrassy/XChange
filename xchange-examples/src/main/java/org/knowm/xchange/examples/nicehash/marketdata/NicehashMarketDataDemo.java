@@ -13,7 +13,9 @@ import org.knowm.xchange.currency.CurrencyPair;
 import org.knowm.xchange.dto.account.AccountInfo;
 import org.knowm.xchange.dto.trade.OpenOrders;
 import org.knowm.xchange.nicehash.NicehashExchange;
+import org.knowm.xchange.nicehash.dto.marketdata.KlineInterval;
 import org.knowm.xchange.nicehash.dto.marketdata.NicehashTicker24h;
+import org.knowm.xchange.nicehash.service.NicehashAccountService;
 import org.knowm.xchange.nicehash.service.NicehashMarketDataService;
 import org.knowm.xchange.nicehash.service.NicehashTradeService;
 import org.knowm.xchange.service.account.AccountService;
@@ -23,21 +25,20 @@ import org.knowm.xchange.service.trade.TradeService;
 public class NicehashMarketDataDemo {
 
   public static void main(String[] args) throws IOException {
-   /* Exchange exchange = NicehashDemoUtils.createExchange();
-    MarketDataService marketDataService = exchange.getMarketDataService();*/
 
-    // GET ACCOUNT INFO
+    //Init exchange and services
     Exchange nicehash = ExchangeFactory.INSTANCE.createExchange(NicehashExchange.class.getName());
     AccountService accountService = nicehash.getAccountService();
+    MarketDataService marketDataService = nicehash.getMarketDataService();
     TradeService tradeService = nicehash.getTradeService();
-   // OpenOrders openOrders = tradeService.getOpenOrders();
-    //System.out.println(openOrders.toString());
-    AccountInfo accountInfo = accountService.getAccountInfo();
-    System.out.println(accountInfo.toString());
 
-    /* generic(exchange, marketDataService);
     System.out.println("server time: " + ((NicehashMarketDataService) marketDataService).getTimestamp());
-    raw((NicehashExchange) exchange, (NicehashMarketDataService) marketDataService);*/
+   // System.out.println("Prices: \n" + ((NicehashMarketDataService) marketDataService).tickerAllPrices());
+    System.out.println("acc info: " + ((NicehashAccountService) accountService).getAccountInfo());
+
+    //ticker for all currencies
+    //rawAll((NicehashExchange) nicehash, (NicehashMarketDataService) marketDataService);
+
   }
 
   public static void generic(Exchange exchange, MarketDataService marketDataService)
@@ -93,7 +94,7 @@ public class NicehashMarketDataDemo {
         .forEach(
             t -> {
               System.out.println(
-                  t.getSymbol() + " => " + String.format("%+.2f%%", t.getLastPrice()));
+                  t.getSymbol() + " => " + String.format("price change %+.2f%%", t.getPriceChangePercent()));
             });
   }
 }

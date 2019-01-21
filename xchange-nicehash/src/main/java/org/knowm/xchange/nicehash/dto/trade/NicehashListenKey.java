@@ -2,7 +2,6 @@ package org.knowm.xchange.nicehash.dto.trade;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/** Created by cyril on 11-Oct-17. */
 public class NicehashListenKey {
 
   private String listenKey;
